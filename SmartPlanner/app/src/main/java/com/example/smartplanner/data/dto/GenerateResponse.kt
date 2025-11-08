@@ -9,9 +9,17 @@ data class GenerateRequest(
 )
 
 @Serializable
+data class Task(
+    val title: String,
+    val description: String? = null,
+    val est_minutes: Int,
+    val priority: String
+)
+
+@Serializable
 data class DayPlan(
     val day: Int,
-    val tasks: List<String>
+    val tasks: List<Task>
 )
 
 @Serializable

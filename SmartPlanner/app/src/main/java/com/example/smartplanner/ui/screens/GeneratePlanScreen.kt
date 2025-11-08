@@ -99,19 +99,53 @@ fun GeneratePlanScreen(
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             day.tasks.forEach { task ->
-                                Row(
+                                Column(
                                     modifier = Modifier
                                         .padding(vertical = 4.dp)
                                         .fillMaxWidth()
                                 ) {
-                                    Text(
-                                        text = "•",
-                                        modifier = Modifier.padding(end = 8.dp)
-                                    )
-                                    Text(
-                                        text = task,
-                                        style = MaterialTheme.typography.bodyMedium
-                                    )
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Row(
+                                            verticalAlignment = Alignment.CenterVertically,
+                                            modifier = Modifier.weight(1f)
+                                        ) {
+                                            Text(
+                                                text = "•",
+                                                modifier = Modifier.padding(end = 8.dp)
+                                            )
+                                            Text(
+                                                text = task.title,
+                                                style = MaterialTheme.typography.bodyMedium
+                                            )
+                                        }
+                                        // Priority chip and estimated time
+                                        AssistChip(
+                                            onClick = { },
+                                            label = { 
+                                                Text("${task.est_minutes} мин • ${task.priority}") 
+                                            },
+                                            colors = AssistChipDefaults.assistChipColors(
+                                                containerColor = when(task.priority) {
+                                                    "high" -> MaterialTheme.colorScheme.errorContainer
+                                                    "medium" -> MaterialTheme.colorScheme.secondaryContainer
+                                                    else -> MaterialTheme.colorScheme.tertiaryContainer
+                                                }
+                                            )
+                                        )
+                                    }
+                                    // Description if available
+                                    task.description?.let { desc ->
+                                        Text(
+                                            text = desc,
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                                            modifier = Modifier.padding(start = 24.dp, top = 4.dp)
+                                        )
+                                    }
                                 }
                             }
                         }
