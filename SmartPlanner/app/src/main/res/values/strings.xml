@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Planner</string>
+    <string name="enter_goal_label">Enter goal</string>
+    <string name="goal_placeholder">E.g.: Learn English</string>
+    <string name="compose_plan">Compose plan</string>
+    <string name="composing_plan">Composing plan...</string>
+    <string name="day">Day %1$d</string>
+    <string name="plan_intro">Enter your goal and I\'ll help build a plan to achieve it</string>
+    <string name="no_tasks_title">You have no tasks yet</string>
+    <string name="no_tasks_subtitle">Create a new task to get a plan of actions</string>
+    <string name="edit_task_title">Edit task</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="task_plan_prefix">Plan: %1$s</string>
+    <string name="nav_create">Create</string>
+    <string name="nav_list">My plans</string>
+</resources>
